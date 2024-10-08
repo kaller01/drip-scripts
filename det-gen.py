@@ -159,8 +159,8 @@ def main(argv):
 		print("TLSA RR: IN  TLSA 3 1 0 (", pbder.hex()[:44].zfill(44), "\n        ", pbder.hex()[44:].zfill(44), ")")
 
 	print("Raw HI: ", pbraw.hex())
-	det = det_orchid(keyname, raa, hda, pbraw)
-
+	HOST_ID = unhexlify('00010000') + pbraw # RFC 9374 Section 3.4.1.1
+	det = det_orchid(keyname, raa, hda, HOST_ID)
 
 
 
